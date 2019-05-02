@@ -1,0 +1,25 @@
+                                           if(remaining<10)
+					 {
+					 console.log("executing....");
+					     end=count;
+					     $.ajax({
+					         type:"GET",
+					         url:"<%=fetchusersURL%>",
+					         data:{ <portlet:namespace />search: "scroll",<portlet:namespace />start: start,<portlet:namespace />end: end},
+					         success: function(data){
+						     var da = $.parseJSON(data);
+					    
+					         for(var i=0;i<da.length;i++){
+					    	 var obj=da[i];
+					    	 //console.log(obj);
+					    	  
+					    	 $('#userlist').append("<li id='"+obj.fullname+"' value='"+obj.fullname+"'>"+obj.fullname+"</li>");
+					    	 
+					         }
+					         start=end+1;
+					         }
+					         
+					  
+					       });
+					 
+					 }
